@@ -1,0 +1,41 @@
+.Profile{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    border-radius: 1px;
+    width: 80%;
+    height: 600px;
+}
+.Profile div{
+    margin: 10px;
+    position: relative;
+}
+.ProfileInfo{
+    display: grid;
+    justify-items: center;
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    height: 450px;
+}
+.ProfileInfo p{
+    height: 25px;
+}
+.ProfileInfo b{
+    background: #a6a6a6;
+    padding: 3px;
+    border-radius: 10px;
+}
+.ProfileData{
+    border: 1px solid #a6a6a6;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 300px;
+}
+.ProfileImage{
+    width: 180px;
+    height: 180px;
+}
