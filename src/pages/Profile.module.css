@@ -3,39 +3,119 @@
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     border-radius: 1px;
-    width: 80%;
+    width: 70%;
     height: 600px;
 }
 .Profile div{
-    margin: 10px;
     position: relative;
 }
 .ProfileInfo{
     display: grid;
     justify-items: center;
+    border-radius: 10px;
     grid-template-rows: repeat(3, 1fr);
     align-items: center;
     height: 450px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    margin: 5px;
 }
 .ProfileInfo p{
     height: 25px;
+    font-size: 0.8em;
 }
 .ProfileInfo b{
-    background: #a6a6a6;
+    text-shadow: 0 0 3px #fff;
     padding: 3px;
     border-radius: 10px;
+    font-size: 0.9em;
+    cursor: pointer;
 }
 .ProfileData{
-    border: 1px solid #a6a6a6;
     border-radius: 5px;
-    padding: 10px;
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    height: 250px;
+}
+.ProfilePerson{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    height: 300px;
+    justify-content: space-around;
+    align-items: start;
+    margin: 5px;
+    height: 100%;
 }
 .ProfileImage{
     width: 180px;
     height: 180px;
+}
+
+.ProfileMore{
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    display: grid;
+    align-items: flex-start;
+    height: auto;
+}
+.ProfileMore div{
+    display: flex;
+    justify-content: flex-start;
+    text-align: start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 25px;
+}
+.ProfileMore p{
+    text-shadow: 0 0 3px #fff;
+    cursor: pointer;
+}
+
+
+.ProfileInput{
+    border: 0;
+    background: transparent;
+    outline: 0;
+    box-shadow: 0;
+    width: 120px;
+    margin-left: 5px;
+    color: #fff;
+}
+.ProfileSaveBtn{
+    color: #1aff00;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    cursor: pointer;
+}
+input[type=number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+   appearance: textfield;
+}
+.ProfileSaveBtn:hover{
+    text-shadow: 0 0 2px #1aff00;;
+}
+@media(max-width: 800px){
+    .Profile{
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .ProfileData{
+        align-items: center;
+        padding: 5px;
+        width: 100%;
+    }
+    .ProfilePerson{
+        width: 70%;
+        height: 70%;
+        margin: 20px;
+    }
 }
