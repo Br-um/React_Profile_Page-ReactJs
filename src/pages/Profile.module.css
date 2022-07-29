@@ -84,6 +84,9 @@
     margin-left: 5px;
     color: #fff;
 }
+.ProfileTextArea{
+    width: 100%;
+}
 .ProfileSaveBtn{
     color: #1aff00;
     background: transparent;

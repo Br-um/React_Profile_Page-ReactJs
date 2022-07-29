@@ -1,16 +1,20 @@
 import styles from './Profile.module.css'
 import Loader from '../components/Loader'
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 function Profile() {
 
+    // States
     const [user, setUser] = useState([])
     const [loader, setLoader] = useState(true)
-    const location = useLocation()
+
     const [editName, setEditName] = useState(false)
     const [editBirth, setEditBirth] = useState(false)
     const [editPhone, setEditPhone] = useState(false)
     const [editCpf, setEditCpf] = useState(false)
+    const [editDescription, setEditDescription] = useState(false)
+    const [editInterests, setEditInterests] = useState(false)
+
+    // API
     const API = 'http://localhost:5000'
 
     useEffect(() => {
@@ -46,7 +50,7 @@ function Profile() {
                                     ?
                                     <>
                                         <input className={styles.ProfileInput} type="text" placeholder='Name: ' />
-                                        <a className={styles.ProfileSaveBtn}>save</a>
+                                        <span className={styles.ProfileSaveBtn}>save</span>
                                     </>
                                     :
                                     <b onClick={() => setEditName(true)}> {user.map(val => val.name)}
@@ -60,8 +64,8 @@ function Profile() {
                                 {editBirth
                                     ?
                                     <>
-                                        <input className={styles.ProfileInput} type="date" placeholder='Birth: ' />
-                                        <a className={styles.ProfileSaveBtn}>save</a>
+                                        <input className={styles.ProfileInput} type="date" />
+                                        <span className={styles.ProfileSaveBtn}>save</span>
                                     </>
                                     :
                                     <b onClick={() => setEditBirth(true)}>{user.map(val => val.date)}</b>
@@ -74,8 +78,8 @@ function Profile() {
                                 {editPhone
                                     ?
                                     <>
-                                        <input className={styles.ProfileInput} type="phone" placeholder='Phone: ' />
-                                        <a className={styles.ProfileSaveBtn}>save</a>
+                                        <input className={styles.ProfileInput} type="phone" placeholder={user.map(val => val.phone)} />
+                                        <span className={styles.ProfileSaveBtn}>save</span>
                                     </>
                                     :
                                     <b onClick={() => setEditPhone(true)}>{user.map(val => val.phone)}</b>
@@ -87,8 +91,8 @@ function Profile() {
                                 {editCpf
                                     ?
                                     <>
-                                        <input className={styles.ProfileInput} type="number" placeholder='CPF: ' />
-                                        <a className={styles.ProfileSaveBtn}>save</a>
+                                        <input className={styles.ProfileInput} type="number" placeholder={user.map(val => val.cpf)} />
+                                        <span className={styles.ProfileSaveBtn}>save</span>
                                     </>
                                     :
                                     <b onClick={() => setEditCpf(true)}>{user.map(val => val.cpf)}</b>
@@ -104,18 +108,30 @@ function Profile() {
                     <h3>Description:</h3>
                     {loader
                         ? <Loader />
-                        : <p>{user.map(val => val.description)}</p>
+                        : editDescription
+                            ?
+                            <>
+                                <textarea className={`${styles.ProfileInput} ${styles.ProfileTextArea}`} type="number" placeholder={user.map(val => val.description)} />
+                                <span className={styles.ProfileSaveBtn}>save</span>
+                            </>
+                            : <p onClick={() => setEditDescription(true)}>{user.map(val => val.description)}</p>
                     }
                 </div>
                 <div>
                     <h3>Interests</h3>
                     {loader
                         ? <Loader />
-                        : < p > {user.map(val => val.interests)}</p>
+                        : editInterests
+                            ?
+                            <>
+                                <textarea className={`${styles.ProfileInput} ${styles.ProfileTextArea}`} type="text" placeholder={user.map(val => val.interests)} />
+                                <span className={styles.ProfileSaveBtn}>save</span>
+                            </>
+                            : <p onClick={() => setEditInterests(true)}> {user.map(val => val.interests)}</p>
                     }
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 
