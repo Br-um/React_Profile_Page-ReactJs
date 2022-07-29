@@ -7,5 +7,5 @@
 
 # *Enjoy the project*
 
-**By Henrique Brum**
-**Github: *Br-um***
+##### **By Henrique Brum**
+##### **Github: *Br-um***
